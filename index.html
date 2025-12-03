@@ -651,8 +651,7 @@
                 </p>
                 <p class="text">
                     <b>Attention Mechanism:</b> In self-attention, video and reference parts interact with each other,
-                    where
-                    attention masks ensure that only valid reference regions are attended.
+                    where <b>attention masks</b> ensure that only valid reference regions are attended.
                     Cross-attention then incorporates text guidance, allowing video tokens to follow the text prompt
                     while
                     reference tokens learn semantic alignment under textual constraints.
@@ -672,7 +671,7 @@
 
         <h2>Zero-Shot Inference</h2>
         <p class="text">
-            During inference, we use a pre-trained object segmenter to extract foreground subject masks from reference
+            During inference, we use a pre-trained segmenter to extract foreground subject masks from reference
             images.
             The model naturally handles both foreground subjects (with segmentation) and background scenes (without
             segmentation), demonstrating remarkable flexibility.
