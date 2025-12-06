@@ -498,10 +498,18 @@
 <body>
     <!-- Title Page with Video Background -->
     <div class="container blog" id="first-content">
-        <!-- Background Video -->
-        <video id="background-video" autoplay muted loop playsinline>
-            <source src="assets/videos/Saber.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+        <!-- Static Poster instead of Auto-loading Video -->
+        <div id="background-video" 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('assets/videos/Saber_poster.jpg') center/cover no-repeat; z-index: 0; cursor: pointer;"
+            data-video-src="assets/videos/Saber.mp4"
+            title="Click to play background video">
+        </div>
+        
+        <!-- Hidden video element for lazy loading -->
+        <video id="background-video-element" 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; display: none;"
+            muted loop playsinline>
+            <source src="" type="video/mp4">
         </video>
 
         <!-- Content floating above video -->
@@ -712,49 +720,41 @@
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; padding: 0 2vw;">
                     <!-- Kling -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/4_Qualitative_Comparison_Videos/1_generated_video_kling.mp4"
-                                type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/4_Qualitative_Comparison_Videos/1_generated_video_kling.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Kling1.6</p>
                         </div>
                     </div>
                     <!-- Phantom -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/4_Qualitative_Comparison_Videos/1_generated_video_phantom.mp4"
-                                type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/4_Qualitative_Comparison_Videos/1_generated_video_phantom.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                         </div>
                     </div>
                     <!-- VACE -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/4_Qualitative_Comparison_Videos/1_generated_video_vace.mp4"
-                                type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/4_Qualitative_Comparison_Videos/1_generated_video_vace.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">VACE</p>
                         </div>
                     </div>
                     <!-- Saber (Ours) -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/4_Qualitative_Comparison_Videos/1_generated_video_saber.mp4"
-                                type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/4_Qualitative_Comparison_Videos/1_generated_video_saber.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Saber (Ours)</p>
                         </div>
                     </div>
@@ -797,49 +797,41 @@
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; padding: 0 2vw;">
                     <!-- Kling -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/4_Qualitative_Comparison_Videos/2_generated_video_kling.mp4"
-                                type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/4_Qualitative_Comparison_Videos/2_generated_video_kling.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Kling1.6</p>
                         </div>
                     </div>
                     <!-- Phantom -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/4_Qualitative_Comparison_Videos/2_generated_video_phantom.mp4"
-                                type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/4_Qualitative_Comparison_Videos/2_generated_video_phantom.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                         </div>
                     </div>
                     <!-- VACE -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/4_Qualitative_Comparison_Videos/2_generated_video_vace.mp4"
-                                type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/4_Qualitative_Comparison_Videos/2_generated_video_vace.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">VACE</p>
                         </div>
                     </div>
                     <!-- Saber (Ours) -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/4_Qualitative_Comparison_Videos/2_generated_video_saber.mp4"
-                                type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/4_Qualitative_Comparison_Videos/2_generated_video_saber.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Saber (Ours)</p>
                         </div>
                     </div>
@@ -876,49 +868,41 @@
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; padding: 0 2vw;">
                     <!-- Kling -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/4_Qualitative_Comparison_Videos/3_generated_video_kling.mp4"
-                                type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/4_Qualitative_Comparison_Videos/3_generated_video_kling.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Kling1.6</p>
                         </div>
                     </div>
                     <!-- Phantom -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/4_Qualitative_Comparison_Videos/3_generated_video_phantom.mp4"
-                                type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/4_Qualitative_Comparison_Videos/3_generated_video_phantom.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                         </div>
                     </div>
                     <!-- VACE -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/4_Qualitative_Comparison_Videos/3_generated_video_vace.mp4"
-                                type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/4_Qualitative_Comparison_Videos/3_generated_video_vace.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">VACE</p>
                         </div>
                     </div>
                     <!-- Saber (Ours) -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/4_Qualitative_Comparison_Videos/3_generated_video_saber.mp4"
-                                type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/4_Qualitative_Comparison_Videos/3_generated_video_saber.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Saber (Ours)</p>
                         </div>
                     </div>
@@ -930,7 +914,7 @@
         <hr style="border: none; border-top: 1px solid #ddd; margin: 1vh 0;">
 
         <!-- Case 4 -->
-        <div style="margin: 3vh 0; padding-top: 1vh;">
+        <div style="margin: 3vh 0;">
             <div
                 style="display: grid; grid-template-columns: auto 1fr; gap: 1.5vw; margin-bottom: 1vh; align-items: stretch;">
                 <!-- Left: Reference Images (3 images in a row) -->
@@ -957,49 +941,41 @@
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; padding: 0 2vw;">
                     <!-- Kling -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/4_Qualitative_Comparison_Videos/4_generated_video_kling.mp4"
-                                type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/4_Qualitative_Comparison_Videos/4_generated_video_kling.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Kling1.6</p>
                         </div>
                     </div>
                     <!-- Phantom -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/4_Qualitative_Comparison_Videos/4_generated_video_phantom.mp4"
-                                type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/4_Qualitative_Comparison_Videos/4_generated_video_phantom.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                         </div>
                     </div>
                     <!-- VACE -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/4_Qualitative_Comparison_Videos/4_generated_video_vace.mp4"
-                                type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/4_Qualitative_Comparison_Videos/4_generated_video_vace.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">VACE</p>
                         </div>
                     </div>
                     <!-- Saber (Ours) -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/4_Qualitative_Comparison_Videos/4_generated_video_saber.mp4"
-                                type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/4_Qualitative_Comparison_Videos/4_generated_video_saber.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Saber (Ours)</p>
                         </div>
                     </div>
@@ -1035,45 +1011,41 @@
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; padding: 0 2vw;">
                     <!-- Kling -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleobj_22_kling.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleobj_22_kling.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Kling1.6</p>
                         </div>
                     </div>
                     <!-- Phantom -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleobj_22_phantom.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleobj_22_phantom.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                         </div>
                     </div>
                     <!-- VACE -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleobj_22_vace.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleobj_22_vace.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">VACE</p>
                         </div>
                     </div>
                     <!-- Saber (Ours) -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleobj_22_saber.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleobj_22_saber.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Saber (Ours)</p>
                         </div>
                     </div>
@@ -1112,45 +1084,41 @@
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; padding: 0 2vw;">
                     <!-- Kling -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multihuman_5_kling.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multihuman_5_kling.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Kling1.6</p>
                         </div>
                     </div>
                     <!-- Phantom -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multihuman_5_phantom.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multihuman_5_phantom.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                         </div>
                     </div>
                     <!-- VACE -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multihuman_5_vace.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multihuman_5_vace.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">VACE</p>
                         </div>
                     </div>
                     <!-- Saber (Ours) -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multihuman_5_saber.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multihuman_5_saber.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Saber (Ours)</p>
                         </div>
                     </div>
@@ -1185,45 +1153,41 @@
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; padding: 0 2vw;">
                     <!-- Kling -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleface_18_kling.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleface_18_kling.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Kling1.6</p>
                         </div>
                     </div>
                     <!-- Phantom -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleface_18_phantom.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleface_18_phantom.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                         </div>
                     </div>
                     <!-- VACE -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleface_18_vace.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleface_18_vace.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">VACE</p>
                         </div>
                     </div>
                     <!-- Saber (Ours) -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleface_18_saber.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleface_18_saber.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Saber (Ours)</p>
                         </div>
                     </div>
@@ -1261,45 +1225,41 @@
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; padding: 0 2vw;">
                     <!-- Kling -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multiobject_1_kling.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multiobject_1_kling.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Kling1.6</p>
                         </div>
                     </div>
                     <!-- Phantom -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multiobject_1_phantom.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multiobject_1_phantom.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                         </div>
                     </div>
                     <!-- VACE -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multiobject_1_vace.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multiobject_1_vace.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">VACE</p>
                         </div>
                     </div>
                     <!-- Saber (Ours) -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multiobject_1_saber.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multiobject_1_saber.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Saber (Ours)</p>
                         </div>
                     </div>
@@ -1335,45 +1295,41 @@
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; padding: 0 2vw;">
                     <!-- Kling -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleobj_13_kling.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleobj_13_kling.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Kling1.6</p>
                         </div>
                     </div>
                     <!-- Phantom -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleobj_13_phantom.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleobj_13_phantom.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                         </div>
                     </div>
                     <!-- VACE -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleobj_13_vace.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleobj_13_vace.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">VACE</p>
                         </div>
                     </div>
                     <!-- Saber (Ours) -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleobj_13_saber.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleobj_13_saber.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Saber (Ours)</p>
                         </div>
                     </div>
@@ -1411,45 +1367,41 @@
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; padding: 0 2vw;">
                     <!-- Kling -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/faceobj_6_kling.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/faceobj_6_kling.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Kling1.6</p>
                         </div>
                     </div>
                     <!-- Phantom -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/faceobj_6_phantom.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/faceobj_6_phantom.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                         </div>
                     </div>
                     <!-- VACE -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/faceobj_6_vace.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/faceobj_6_vace.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">VACE</p>
                         </div>
                     </div>
                     <!-- Saber (Ours) -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/faceobj_6_saber.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/faceobj_6_saber.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Saber (Ours)</p>
                         </div>
                     </div>
@@ -1485,45 +1437,41 @@
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; padding: 0 2vw;">
                     <!-- Kling -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleface_7_kling.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleface_7_kling.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Kling1.6</p>
                         </div>
                     </div>
                     <!-- Phantom -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleface_7_phantom.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleface_7_phantom.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                         </div>
                     </div>
                     <!-- VACE -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleface_7_vace.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleface_7_vace.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">VACE</p>
                         </div>
                     </div>
                     <!-- Saber (Ours) -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleface_7_saber.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleface_7_saber.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Saber (Ours)</p>
                         </div>
                     </div>
@@ -1563,45 +1511,41 @@
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; padding: 0 2vw;">
                     <!-- Kling -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multihuman_10_kling.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multihuman_10_kling.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Kling1.6</p>
                         </div>
                     </div>
                     <!-- Phantom -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multihuman_10_phantom.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multihuman_10_phantom.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                         </div>
                     </div>
                     <!-- VACE -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multihuman_10_vace.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multihuman_10_vace.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">VACE</p>
                         </div>
                     </div>
                     <!-- Saber (Ours) -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multihuman_10_saber.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multihuman_10_saber.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Saber (Ours)</p>
                         </div>
                     </div>
@@ -1637,45 +1581,41 @@
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; padding: 0 2vw;">
                     <!-- Kling -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleobj_24_kling.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleobj_24_kling.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Kling1.6</p>
                         </div>
                     </div>
                     <!-- Phantom -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleobj_24_phantom.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleobj_24_phantom.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                         </div>
                     </div>
                     <!-- VACE -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleobj_24_vace.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleobj_24_vace.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">VACE</p>
                         </div>
                     </div>
                     <!-- Saber (Ours) -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleobj_24_saber.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleobj_24_saber.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Saber (Ours)</p>
                         </div>
                     </div>
@@ -1716,45 +1656,41 @@
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; padding: 0 2vw;">
                     <!-- Kling -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multihuman_7_kling.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multihuman_7_kling.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Kling1.6</p>
                         </div>
                     </div>
                     <!-- Phantom -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multihuman_7_phantom.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multihuman_7_phantom.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                         </div>
                     </div>
                     <!-- VACE -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multihuman_7_vace.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multihuman_7_vace.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">VACE</p>
                         </div>
                     </div>
                     <!-- Saber (Ours) -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multihuman_7_saber.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multihuman_7_saber.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Saber (Ours)</p>
                         </div>
                     </div>
@@ -1791,45 +1727,41 @@
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; padding: 0 2vw;">
                     <!-- Kling -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleobj_17_kling.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleobj_17_kling.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Kling1.6</p>
                         </div>
                     </div>
                     <!-- Phantom -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleobj_17_phantom.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleobj_17_phantom.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                         </div>
                     </div>
                     <!-- VACE -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleobj_17_vace.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleobj_17_vace.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">VACE</p>
                         </div>
                     </div>
                     <!-- Saber (Ours) -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleobj_17_saber.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleobj_17_saber.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Saber (Ours)</p>
                         </div>
                     </div>
@@ -1868,45 +1800,41 @@
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; padding: 0 2vw;">
                     <!-- Kling -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multihuman_1_kling.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multihuman_1_kling.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Kling1.6</p>
                         </div>
                     </div>
                     <!-- Phantom -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multihuman_1_phantom.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multihuman_1_phantom.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                         </div>
                     </div>
                     <!-- VACE -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multihuman_1_vace.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multihuman_1_vace.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">VACE</p>
                         </div>
                     </div>
                     <!-- Saber (Ours) -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multihuman_1_saber.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multihuman_1_saber.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Saber (Ours)</p>
                         </div>
                     </div>
@@ -1943,45 +1871,41 @@
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; padding: 0 2vw;">
                     <!-- Kling -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleface_17_kling.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleface_17_kling.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Kling1.6</p>
                         </div>
                     </div>
                     <!-- Phantom -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleface_17_phantom.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleface_17_phantom.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                         </div>
                     </div>
                     <!-- VACE -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleface_17_vace.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleface_17_vace.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">VACE</p>
                         </div>
                     </div>
                     <!-- Saber (Ours) -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleface_17_saber.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleface_17_saber.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Saber (Ours)</p>
                         </div>
                     </div>
@@ -2018,45 +1942,41 @@
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; padding: 0 2vw;">
                     <!-- Kling -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleface_25_kling.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleface_25_kling.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Kling1.6</p>
                         </div>
                     </div>
                     <!-- Phantom -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleface_25_phantom.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleface_25_phantom.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                         </div>
                     </div>
                     <!-- VACE -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleface_25_vace.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleface_25_vace.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">VACE</p>
                         </div>
                     </div>
                     <!-- Saber (Ours) -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singleface_25_saber.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singleface_25_saber.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Saber (Ours)</p>
                         </div>
                     </div>
@@ -2094,45 +2014,41 @@
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; padding: 0 2vw;">
                     <!-- Kling -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singlehuman_3_kling.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singlehuman_3_kling.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Kling1.6</p>
                         </div>
                     </div>
                     <!-- Phantom -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singlehuman_3_phantom.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singlehuman_3_phantom.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                         </div>
                     </div>
                     <!-- VACE -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singlehuman_3_vace.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singlehuman_3_vace.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">VACE</p>
                         </div>
                     </div>
                     <!-- Saber (Ours) -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/singlehuman_3_saber.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/singlehuman_3_saber.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Saber (Ours)</p>
                         </div>
                     </div>
@@ -2172,45 +2088,41 @@
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1vw; padding: 0 2vw;">
                     <!-- Kling -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multiobject_11_kling.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multiobject_11_kling.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Kling1.6</p>
                         </div>
                     </div>
                     <!-- Phantom -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multiobject_11_phantom.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multiobject_11_phantom.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Phantom</p>
                         </div>
                     </div>
                     <!-- VACE -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multiobject_11_vace.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 1px solid #ccc; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multiobject_11_vace.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">VACE</p>
                         </div>
                     </div>
                     <!-- Saber (Ours) -->
                     <div style="position: relative;">
-                        <video controls loop muted autoplay
-                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;">
-                            <source src="assets/videos/X_More_Vis_Examples/multiobject_11_saber.mp4" type="video/mp4">
+                        <video class="lazy-video" loop muted playsinline
+                            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border: 2px solid #2a7d2e; border-radius: 4px; background-color: #000;"
+                            data-src="assets/videos/X_More_Vis_Examples/multiobject_11_saber.mp4">
                         </video>
-                        <div
-                            style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
+                        <div style="position: absolute; top: 8px; left: 8px; background-color: rgba(42, 125, 46, 0.85); padding: 4px 8px; border-radius: 4px;">
                             <p style="font-weight: 600; font-size: 85%; color: white; margin: 0;">Saber (Ours)</p>
                         </div>
                     </div>

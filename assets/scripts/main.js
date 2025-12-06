@@ -1,3 +1,90 @@
+//* ======================== Video Loading Strategy ===================== */
+// Priority 1: Background video loads immediately
+// Priority 2: Other videos load after background video is ready
+
+let backgroundVideoReady = false;
+
+// Background video lazy loading with poster
+const setupBackgroundVideo = () => {
+  const posterDiv = document.getElementById('background-video');
+  const videoElement = document.getElementById('background-video-element');
+  
+  if (posterDiv && videoElement) {
+    const loadBackgroundVideo = () => {
+      const videoSrc = posterDiv.dataset.videoSrc;
+      if (videoSrc && !videoElement.src) {
+        const source = document.createElement('source');
+        source.src = videoSrc;
+        source.type = 'video/mp4';
+        videoElement.appendChild(source);
+        
+        // Mark as ready when video can play
+        videoElement.addEventListener('canplay', () => {
+          backgroundVideoReady = true;
+          // Trigger lazy loading of other videos
+          lazyLoadVideos();
+        }, { once: true });
+        
+        videoElement.style.display = 'block';
+        videoElement.load();
+        videoElement.play().catch(() => {
+          // If autoplay fails, mark as ready anyway
+          backgroundVideoReady = true;
+          lazyLoadVideos();
+        });
+        posterDiv.style.display = 'none';
+      }
+    };
+
+    // Click handler for manual play
+    posterDiv.addEventListener('click', loadBackgroundVideo);
+
+    // Auto-load background video immediately (no delay)
+    loadBackgroundVideo();
+  }
+};
+
+//* ======================== Lazy Loading Videos (Delayed) ===================== */
+const lazyLoadVideos = () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const video = entry.target;
+        const src = video.dataset.src;
+        
+        // Only load if background video is ready
+        if (backgroundVideoReady && src && !video.src) {
+          const source = document.createElement('source');
+          source.src = src;
+          source.type = 'video/mp4';
+          video.appendChild(source);
+          video.load();
+          video.play().catch(() => {
+            // Autoplay may be blocked, user can click to play
+          });
+        }
+        observer.unobserve(video);
+      }
+    });
+  }, { rootMargin: '200px' });
+
+  // Only start observing if background is ready, otherwise wait
+  if (backgroundVideoReady) {
+    document.querySelectorAll('.lazy-video').forEach(video => {
+      observer.observe(video);
+    });
+  }
+};
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    setupBackgroundVideo();
+  });
+} else {
+  setupBackgroundVideo();
+}
+
 //* ======================== Slide Control ===================== */
 var contents = document.getElementsByClassName("slide-content");
 
