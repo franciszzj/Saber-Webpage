@@ -18,8 +18,6 @@ Zijian Zhou<sup>1,2</sup>, Shikun Liu<sup>1</sup>, Haozhe Liu<sup>1</sup>, Haona
   Your browser does not support the video tag.
 </video>
 
-*Click the video above or [watch the full teaser video](assets/videos/Saber.mp4) to see Saber in action.*
-
 ## Key Features
 
 - **Zero-Shot Learning**: No explicit reference image-video-text triplet datasets required, training only on video-text pairs
@@ -61,27 +59,55 @@ We conduct qualitative comparisons between Saber and other methods (Kling1.6, Ph
 
 #### Example 1: Single Human Image
 
-| Reference Image | Text Prompt | Kling1.6 | Phantom | VACE | Saber (Ours) |
-|----------------|-------------|----------|---------|------|--------------|
-| <img src="assets/videos/4_Qualitative_Comparison_Videos/1_reference_image_1.png" width="200"> | The video features a man with a rugged beard, wearing a leather jacket, riding a vintage motorcycle along a desert highway. His expression is focused, eyes narrowed slightly against the wind, as the setting sun casts a warm glow over the landscape. | <video width="200" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/1_generated_video_kling.mp4" type="video/mp4"></video> | <video width="200" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/1_generated_video_phantom.mp4" type="video/mp4"></video> | <video width="200" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/1_generated_video_vace.mp4" type="video/mp4"></video> | <video width="200" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/1_generated_video_saber.mp4" type="video/mp4"></video> |
+**Reference Image:**
+<img src="assets/videos/4_Qualitative_Comparison_Videos/1_reference_image_1.png" height="200" style="object-fit: contain;">
+
+**Text Prompt:** The video features a man with a rugged beard, wearing a leather jacket, riding a vintage motorcycle along a desert highway. His expression is focused, eyes narrowed slightly against the wind, as the setting sun casts a warm glow over the landscape.
+
+**Generated Videos:**
+
+| Kling1.6 | Phantom | VACE | Saber (Ours) |
+|----------|---------|------|--------------|
+| <video width="250" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/1_generated_video_kling.mp4" type="video/mp4"></video> | <video width="250" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/1_generated_video_phantom.mp4" type="video/mp4"></video> | <video width="250" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/1_generated_video_vace.mp4" type="video/mp4"></video> | <video width="250" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/1_generated_video_saber.mp4" type="video/mp4"></video> |
 
 #### Example 2: Multiple Human Images
 
-| Reference Images | Text Prompt | Kling1.6 | Phantom | VACE | Saber (Ours) |
-|-----------------|-------------|----------|---------|------|--------------|
-| <img src="assets/videos/4_Qualitative_Comparison_Videos/2_reference_image_1.jpg" width="100"> <img src="assets/videos/4_Qualitative_Comparison_Videos/2_reference_image_2.jpg" width="100"> <img src="assets/videos/4_Qualitative_Comparison_Videos/2_reference_image_3.jpg" width="100"> | A woman with long, flowing black hair pulled back into a ponytail dances gracefully in a sunlit meadow. She is wearing a flowing dress that billows gently around her as she moves. The scene captures her mid-twirl, with the fabric of her dress swirling elegantly. | <video width="200" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/2_generated_video_kling.mp4" type="video/mp4"></video> | <video width="200" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/2_generated_video_phantom.mp4" type="video/mp4"></video> | <video width="200" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/2_generated_video_vace.mp4" type="video/mp4"></video> | <video width="200" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/2_generated_video_saber.mp4" type="video/mp4"></video> |
+**Reference Images:**
+<img src="assets/videos/4_Qualitative_Comparison_Videos/2_reference_image_1.jpg" height="200" style="object-fit: contain;"> <img src="assets/videos/4_Qualitative_Comparison_Videos/2_reference_image_2.jpg" height="200" style="object-fit: contain;"> <img src="assets/videos/4_Qualitative_Comparison_Videos/2_reference_image_3.jpg" height="200" style="object-fit: contain;">
+
+**Text Prompt:** A woman with long, flowing black hair pulled back into a ponytail dances gracefully in a sunlit meadow. She is wearing a flowing dress that billows gently around her as she moves. The scene captures her mid-twirl, with the fabric of her dress swirling elegantly.
+
+**Generated Videos:**
+
+| Kling1.6 | Phantom | VACE | Saber (Ours) |
+|----------|---------|------|--------------|
+| <video width="250" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/2_generated_video_kling.mp4" type="video/mp4"></video> | <video width="250" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/2_generated_video_phantom.mp4" type="video/mp4"></video> | <video width="250" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/2_generated_video_vace.mp4" type="video/mp4"></video> | <video width="250" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/2_generated_video_saber.mp4" type="video/mp4"></video> |
 
 #### Example 3: Single Object Image
 
-| Reference Image | Text Prompt | Kling1.6 | Phantom | VACE | Saber (Ours) |
-|----------------|-------------|----------|---------|------|--------------|
-| <img src="assets/videos/4_Qualitative_Comparison_Videos/3_reference_image_1.jpg" width="200"> | This video shows a peaceful morning scene at a cozy farmhouse. The camera slowly pans across the exterior, revealing the rustic charm of the wooden structure. As the camera moves, a dog is seen lying near the entrance, its tail wagging gently. The soft morning light creates long shadows, adding to the tranquil atmosphere. | <video width="200" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/3_generated_video_kling.mp4" type="video/mp4"></video> | <video width="200" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/3_generated_video_phantom.mp4" type="video/mp4"></video> | <video width="200" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/3_generated_video_vace.mp4" type="video/mp4"></video> | <video width="200" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/3_generated_video_saber.mp4" type="video/mp4"></video> |
+**Reference Image:**
+<img src="assets/videos/4_Qualitative_Comparison_Videos/3_reference_image_1.jpg" height="200" style="object-fit: contain;">
+
+**Text Prompt:** This video shows a peaceful morning scene at a cozy farmhouse. The camera slowly pans across the exterior, revealing the rustic charm of the wooden structure. As the camera moves, a dog is seen lying near the entrance, its tail wagging gently. The soft morning light creates long shadows, adding to the tranquil atmosphere.
+
+**Generated Videos:**
+
+| Kling1.6 | Phantom | VACE | Saber (Ours) |
+|----------|---------|------|--------------|
+| <video width="250" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/3_generated_video_kling.mp4" type="video/mp4"></video> | <video width="250" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/3_generated_video_phantom.mp4" type="video/mp4"></video> | <video width="250" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/3_generated_video_vace.mp4" type="video/mp4"></video> | <video width="250" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/3_generated_video_saber.mp4" type="video/mp4"></video> |
 
 #### Example 4: Multiple Object Images
 
-| Reference Images | Text Prompt | Kling1.6 | Phantom | VACE | Saber (Ours) |
-|-----------------|-------------|----------|---------|------|--------------|
-| <img src="assets/videos/4_Qualitative_Comparison_Videos/4_reference_image_1.jpg" width="100"> <img src="assets/videos/4_Qualitative_Comparison_Videos/4_reference_image_2.jpg" width="100"> <img src="assets/videos/4_Qualitative_Comparison_Videos/4_reference_image_3.jpg" width="100"> | The video shows a table setting with a floral cup, an ashtray and an open book, as a stream of tea is slowly poured into the cup. | <video width="200" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/4_generated_video_kling.mp4" type="video/mp4"></video> | <video width="200" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/4_generated_video_phantom.mp4" type="video/mp4"></video> | <video width="200" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/4_generated_video_vace.mp4" type="video/mp4"></video> | <video width="200" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/4_generated_video_saber.mp4" type="video/mp4"></video> |
+**Reference Images:**
+<img src="assets/videos/4_Qualitative_Comparison_Videos/4_reference_image_1.jpg" height="200" style="object-fit: contain;"> <img src="assets/videos/4_Qualitative_Comparison_Videos/4_reference_image_2.jpg" height="200" style="object-fit: contain;"> <img src="assets/videos/4_Qualitative_Comparison_Videos/4_reference_image_3.jpg" height="200" style="object-fit: contain;">
+
+**Text Prompt:** The video shows a table setting with a floral cup, an ashtray and an open book, as a stream of tea is slowly poured into the cup.
+
+**Generated Videos:**
+
+| Kling1.6 | Phantom | VACE | Saber (Ours) |
+|----------|---------|------|--------------|
+| <video width="250" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/4_generated_video_kling.mp4" type="video/mp4"></video> | <video width="250" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/4_generated_video_phantom.mp4" type="video/mp4"></video> | <video width="250" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/4_generated_video_vace.mp4" type="video/mp4"></video> | <video width="250" controls><source src="assets/videos/4_Qualitative_Comparison_Videos/4_generated_video_saber.mp4" type="video/mp4"></video> |
 
 ### More Visualization Examples
 
@@ -104,17 +130,32 @@ Beyond the standard R2V task, Saber demonstrates several interesting capabilitie
 
 Saber can handle multiple reference images corresponding to different views of the same subject.
 
-| Reference Images | Text Prompt | Generated Video |
-|-----------------|-------------|-----------------|
-| <img src="assets/videos/7_Same_Subject_Multi_View_Videos/1_reference_image_1.png" width="150"> <img src="assets/videos/7_Same_Subject_Multi_View_Videos/1_reference_image_2.png" width="150"> <img src="assets/videos/7_Same_Subject_Multi_View_Videos/1_reference_image_3.png" width="150"> | The video opens with a slow, cinematic rotation around a robot, its body gleaming with a fusion of transparent panels and brushed metal, circuits pulsing faintly beneath the surface like living veins of light. As the rotation completes, the scene flows into motion, following the robot as it strides along lush green country lanes. | <video width="400" controls><source src="assets/videos/7_Same_Subject_Multi_View_Videos/1_generated_video.mp4" type="video/mp4"></video> |
+**Reference Images:**
+<img src="assets/videos/7_Same_Subject_Multi_View_Videos/1_reference_image_1.png" height="200" style="object-fit: contain;"> <img src="assets/videos/7_Same_Subject_Multi_View_Videos/1_reference_image_2.png" height="200" style="object-fit: contain;"> <img src="assets/videos/7_Same_Subject_Multi_View_Videos/1_reference_image_3.png" height="200" style="object-fit: contain;">
+
+**Text Prompt:** The video opens with a slow, cinematic rotation around a robot, its body gleaming with a fusion of transparent panels and brushed metal, circuits pulsing faintly beneath the surface like living veins of light. As the rotation completes, the scene flows into motion, following the robot as it strides along lush green country lanes.
+
+**Generated Video:**
+
+<video width="600" controls>
+  <source src="assets/videos/7_Same_Subject_Multi_View_Videos/1_generated_video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 #### Cross-Modal Alignment
 
 Saber demonstrates strong cross-modal alignment capabilities, allowing fine-grained control over generated content through text prompts.
 
-| Reference Images | Text Prompt | Type 1: Blue Shirt | Type 2: Black Vest |
-|-----------------|-------------|-------------------|-------------------|
-| <img src="assets/videos/8_Cross_Modal_Alignment_Videos/1_reference_image_1.jpg" width="150"> <img src="assets/videos/8_Cross_Modal_Alignment_Videos/1_reference_image_2.jpg" width="150"> | The video depicts two men in an office environment. The focus is on a man wearing a [Type 1: blue shirt] / [Type 2: black vest] seated at a desk, working intently on a laptop. | <video width="300" controls><source src="assets/videos/8_Cross_Modal_Alignment_Videos/1_generated_video_type_1.mp4" type="video/mp4"></video> | <video width="300" controls><source src="assets/videos/8_Cross_Modal_Alignment_Videos/1_generated_video_type_2.mp4" type="video/mp4"></video> |
+**Reference Images:**
+<img src="assets/videos/8_Cross_Modal_Alignment_Videos/1_reference_image_1.jpg" height="200" style="object-fit: contain;"> <img src="assets/videos/8_Cross_Modal_Alignment_Videos/1_reference_image_2.jpg" height="200" style="object-fit: contain;">
+
+**Text Prompt:** The video depicts two men in an office environment. The focus is on a man wearing a [Type 1: blue shirt] / [Type 2: black vest] seated at a desk, working intently on a laptop.
+
+**Generated Videos:**
+
+| Type 1: Blue Shirt | Type 2: Black Vest |
+|-------------------|-------------------|
+| <video width="400" controls><source src="assets/videos/8_Cross_Modal_Alignment_Videos/1_generated_video_type_1.mp4" type="video/mp4"></video> | <video width="400" controls><source src="assets/videos/8_Cross_Modal_Alignment_Videos/1_generated_video_type_2.mp4" type="video/mp4"></video> |
 
 ## Citation
 
